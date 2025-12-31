@@ -1,119 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Romain Chevrot — Consultant intégrateur DevOps</title>
+  <meta name="description" content="CV — Romain Chevrot, Consultant intégrateur DevOps." />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
 
-<!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/Person" lang="fr" class="no-js">
-  <head>
-    <meta charset="utf-8" />
+<body>
+  <header class="topbar">
+  <div class="topbar__actions">
+    <a href="https://www.linkedin.com/in/r-chvrt/" target="_blank" rel="noreferrer" class="icon-btn" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.3 2.4-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8v8.5h-5V16c0-2.1 0-4.8-3-4.8s-3.5 2.3-3.5 4.7v8.6H8z"/>
+      </svg>
+    </a>
+    <a href="#about" class="icon-btn" aria-label="À propos de moi" title="À propos de moi">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM11 10h2v7h-2v-7z"/>
+      </svg>
+    </a>
+    <a href="/contact" class="icon-btn" aria-label="Contact" title="Contact">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M2 4h20v16H2V4zm10 7L4 6v12h16V6l-8 5z"/>
+      </svg>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Basculer thème" title="Changer de thème">
+      <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
+  </header>
 
-    <title>Romain Chevrot.</title>
-    <meta
-      name="description"
-      content="Romain Chevrot, plus de 10 ans d'expérience en informatique dans le support, la maintenance, et l'administration de systèmes et solutions informatiques."
-    />
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="top" aria-label="Accueil">
+      <div class="hero__content">
 
-    <!--favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/fav/site.webmanifest">
-    
-    <!-- schema.org -->
-    <meta itemprop="name" content="Romain Chevrot" />
-    <meta itemprop="gender" content="male" />
-    <meta itemprop="birthDate" content="1994-04-25" />
-    <meta
-      itemprop="image"
-      content="https://gravatar.com/avatar/4b025d1fc01463a0b9b562c86ca953d4?size=600"
-    />
-    <meta
-      itemprop="description"
-      content="Romain Chevrot, plus de 10 ans d'expérience en informatique dans le support, la maintenance, et l'administration de systèmes et solutions informatiques."
-    />
+        <h1 class="hero__title typing">
+          <span id="typed-name" data-text="Romain Chevrot.">Romain Chevrot</span>
+        </h1>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width" />
+        <p class="hero__subtitle fade-in-after-typing">
+          Consultant intégrateur DevOps
+        </p>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-    <div class="profile--image">
-      <!-- <img src="https://gravatar.com/avatar/4b025d1fc01463a0b9b562c86ca953d4?size=600" alt="Romain Chevrot"> -->
-    </div>
+        <div class="hero__links fade-in-links">
+          <a class="link" href="https://www.linkedin.com/in/r-chvrt/" target="_blank" rel="noreferrer">Mon LinkedIn</a>
+          <span class="sep">•</span>
+          <a class="link" href="#about">À propos de moi</a>
+          <span class="sep">•</span>
+          <a class="link" href="/contact">Contact</a>
+        </div>
 
-    <section class="main" role="main">
-      <div class="avatar">
-        <img
-          class="avatar__img"
-          width="150"
-          height="150"
-          src="https://gravatar.com/avatar/4b025d1fc01463a0b9b562c86ca953d4?size=400"
-          alt="Romain Chevrot"
-        />
+        <p class="hero__availability">
+          Disponible : <span id="availability">X</span>
+        </p>
       </div>
 
-      <div class="about">
-        <h2 class="about__title">Romain Chevrot</h2>
-        <div class="about__description">
-          <p>
-            Consultant intégrateur DevOps.
-          </p>
+      <button class="scroll-down" type="button" aria-label="Aller à la section À propos" data-scroll="#about">
+        <span class="scroll-down__icon" aria-hidden="true">↓</span>
+      </button>
+    </section>
 
-          <p>
-            Plus de 10 ans d'expérience en informatique dans le support, la maintenance, et l'administration de systèmes et solutions informatiques.
-          </p>
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-label="À propos">
+      <div class="container">
+        <h2>À propos</h2>
+        <p class="lead">
+          To be updated : Intégrateur / consultant DevOps orienté prod : automatisation, CI/CD, observabilité, et déploiements sur Kubernetes / OpenShift.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Consultant Intégrateur DevOPS</h3>
+            <p class="muted">Depuis <b>2024</b>.</p>
+            <ul>
+              <li>Déploiements multi-environnements / multi-pays</li>
+              <li>Industrialisation des pipelines CI/CD</li>
+              <li>Fiabilité, performance et observabilité (SRE)</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Référent support et maintenance</h3>
+            <p class="muted"><b>2023</b> → <b>2024</b> • Pilotage des activités</p>
+            <ul>
+              <li>Encadrement et montée en compétence de nouveaux collaborateurs support</li>
+              <li>Gestion de bases de données MySQL et Oracle</li>
+              <li>Pilotage de reprises de données</li>
+              <li>Référent technique auprès des clients</li>
+              <li>Reprise et structuration d'un backlog de demandes d'assistance, avec suivi quotidien et priorisation</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Technicien support & système, Conseiller support technique</h3>
+            <p class="muted"><b>2018</b> → <b>2024</b> • Support et maintenance</p>
+            <ul>
+              <li>Administration de serveurs Windows et Linux</li>
+              <li>Configuration et maintenance d'équipements réseau (Fortigate, Zyxel)</li>
+              <li>Supervision des sauvegardes clients</li>
+              <li>Résolution d'incidents (niv. 1, 2 et 3)</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="skills">
+          <h3>Quelques compétences :</h3>
+          <div class="chips">
+            <span class="chip">GitLab CI/CD</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">OpenShift</span>
+            <span class="chip">Nginx</span>
+
+            <span class="chip">Prometheus</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">Loki</span>
+
+            <span class="chip">Linux</span>
+            <span class="chip">Scripting</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Langues</h3>
+            <ul class="list">
+              <li><strong>Français</strong> — natif</li>
+              <li><strong>Anglais</strong> — courant (C1)</li>
+              <li><strong>Espagnol</strong> — notions</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Centres d'intérêt</h3>
+            <ul class="list">
+              <li>Homelab & self-hosting</li>
+              <li>Automatisation & scripting</li>
+              <li>Veille technologique</li>
+              <li>Jeux vidéo, films & séries</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="contact__actions" style="margin-top:18px;">
+          <a class="btn btn--ghost" href="/contact">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M2 4h20v16H2V4zm10 7L4 6v12h16V6l-8 5z"/>
+            </svg>
+          </a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/r-chvrt/" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.3 2.4-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8v8.5h-5V16c0-2.1 0-4.8-3-4.8s-3.5 2.3-3.5 4.7v8.6H8z"/>
+          </svg>
+          </a>
         </div>
       </div>
-      <!--
-
-          -->
-      <div class="contact-mail">
-        <span class="btn">pro[at]romain-c.fr</span>
-      </div>
-      <!--
-
-          -->
-      <nav>
-        <ul>
-          <li>
-            <a
-              href="#"
-              class="tooltip tooltip-bottom"
-              data-title="A venir!"
-              target="_blank"
-              >Blog</a
-            >
-          </li>
-          <li>
-            <a
-              rel="me"
-              class="tooltip tooltip-bottom"
-              href="https://github.com/r-chvrt"
-              data-title="Mon Github, pas grand chose pour le moment"
-              target="_blank"
-              >Github</a
-            >
-          </li>
-          <li>
-            <a
-              rel="me"
-              class="tooltip tooltip-bottom"
-              href="https://www.linkedin.com/in/r-chvrt/"
-              data-title="Mon LinkedIn!"
-              target="_blank"
-              >LinkedIn</a
-            >
-          </li>
-          <li>
-            <a
-              rel="me"
-              class="tooltip tooltip-bottom"
-              href="assets/CV_RCHEVROT_NO_HEADLINE.pdf"
-              data-title="Télécharger mon CV!"
-              target="_blank"
-              >Mon CV</a
-            >
-          </li>
-        </ul>
-      </nav>
     </section>
- </body>
+
+
+  </main>
+
+  <button
+    class="scroll-up"
+    type="button"
+    aria-label="Retour en haut"
+    data-scroll="#top"
+  >
+    <span aria-hidden="true">↑</span>
+  </button>
+  <a href="/rgpd" class="rgpd-btn rgpd-btn--label">
+    ⚖️ <span>RGPD</span>
+  </a>
+  <script src="./app.js"></script>
+</body>
 </html>

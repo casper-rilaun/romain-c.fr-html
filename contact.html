@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Romain Chevrot</title>
+  <meta name="description" content="Me contacter" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar__actions">
+      <a class="icon-btn" href="/" aria-label="Retour au CV" title="Retour au CV">↩️</a>
+      <button class="theme-toggle" type="button" aria-label="Basculer thème" title="Changer de thème">
+        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="about" aria-label="Contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">Envoie-moi un message, je reviens vers toi rapidement.</p>
+
+        <form class="card" id="contactForm" method="post" action="./contact.php" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Nom</span>
+              <input name="name" type="text" autocomplete="name" required minlength="2" />
+            </label>
+
+            <label class="field">
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Sujet</span>
+            <input name="subject" type="text" required minlength="3" />
+          </label>
+
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" rows="6" required minlength="10"></textarea>
+          </label>
+
+          <!-- Honeypot (doit rester vide) -->
+          <div class="hp" aria-hidden="true">
+            <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <!-- Timing (anti-bot basique) -->
+          <input type="hidden" name="t" id="t" value="0" />
+
+          <div class="contact__actions">
+            <button class="btn" type="submit"><b>Envoyer</b></button>
+            <a class="btn btn--ghost" href="/">Retour</a>
+          </div>
+
+          <p class="muted" id="formStatus" style="margin-top:12px;"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+<script>
+  // Timestamp anti-bot (robuste)
+  (function () {
+    var tEl = document.getElementById("t");
+    if (tEl) tEl.value = String(Date.now());
+  })();
+
+  // Petit feedback client (optionnel)
+  (function () {
+    var form = document.getElementById("contactForm");
+    var statusEl = document.getElementById("formStatus");
+    if (!form || !statusEl) return;
+
+    form.addEventListener("submit", function () {
+      statusEl.textContent = "Envoi en cours…";
+    });
+  })();
+</script>
+
+</body>
+</html>

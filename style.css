@@ -1,0 +1,609 @@
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
+
+:root{
+  color-scheme: dark;
+
+  --bg: #0b0b0f;
+  --bg2:#0f111a;
+  --text:#f2f3f7;
+  --muted:#b7bccb;
+  --card:#141827;
+  --border: rgba(255,255,255,.08);
+  --accent: #7aa2ff;
+
+  --topbar-bg: linear-gradient(
+    180deg,
+    rgba(11,11,15,.85),
+    rgba(11,11,15,0)
+  );
+  --surface: rgba(255,255,255,.03);
+  --surface-2: rgba(255,255,255,.05);
+}
+
+/* Thème clair */
+:root[data-theme="light"]{
+  color-scheme: light;
+
+  --bg: #f6f7fb;
+  --bg2:#eef1f7;
+  --text:#0d1222;
+  --muted:#4b5568;
+  --card:#ffffff;
+  --border: rgba(13,18,34,.12);
+  --accent:#2f6bff;
+
+  --topbar-bg: linear-gradient(
+    180deg,
+    rgba(246,247,251,.9),
+    rgba(246,247,251,0)
+  );
+  --surface: rgba(13,18,34,.04);
+  --surface-2: rgba(13,18,34,.06);
+}
+
+
+/* =========================================================
+   BASE / RESET
+   ========================================================= */
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ color: var(--accent); }
+
+
+/* =========================================================
+   TOPBAR / HEADER
+   ========================================================= */
+
+.topbar{
+  position:fixed;
+  top:0; left:0; right:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 22px;
+  z-index:10;
+  backdrop-filter: blur(6px);
+  background: var(--topbar-bg);
+}
+
+.brand{
+  width:36px; height:36px;
+  display:grid; place-items:center;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+/* (Optionnel) Ancien menu texte si tu le remets un jour */
+.nav{
+  display:flex;
+  gap:18px;
+  font-size:14px;
+  color:var(--muted);
+}
+.nav a{ padding:8px 10px; border-radius:10px; }
+.nav a:hover{ background:rgba(255,255,255,.06); }
+
+/* Actions à droite (icônes + toggle thème) */
+.topbar__actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  font-size:18px;
+}
+
+.icon-btn:hover{
+  background:rgba(255,255,255,.08);
+  color:var(--accent);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:90px 22px 40px;
+  position:relative;
+  background:
+    radial-gradient(900px 420px at 50% 15%, rgba(122,162,255,.22), transparent 60%),
+    radial-gradient(700px 360px at 15% 25%, rgba(122,162,255,.12), transparent 55%),
+    radial-gradient(700px 360px at 85% 30%, rgba(122,162,255,.10), transparent 55%);
+}
+
+.hero__content{
+  max-width:900px;
+  text-align:center;
+}
+
+.hero__title{
+  margin:0;
+  font-size: clamp(40px, 5vw, 64px);
+  letter-spacing:-.02em;
+}
+
+.hero__subtitle{
+  margin:10px 0 0;
+  font-size: clamp(16px, 2vw, 22px);
+  color:var(--muted);
+}
+
+.hero__links{
+  margin:22px 0 0;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  color:var(--muted);
+}
+
+.sep{ opacity:.6; }
+
+.link{
+  padding:6px 10px;
+  border-radius:10px;
+}
+
+.link:hover{
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+}
+
+.hero__availability{
+  margin:18px 0 0;
+  color:var(--muted);
+}
+
+#availability{
+  color:var(--text);
+  font-weight:600;
+}
+
+
+/* =========================================================
+   SECTION BUTTONS (DOWN / UP)
+   ========================================================= */
+
+.scroll-down{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  cursor:pointer;
+}
+
+.scroll-down:hover{ background:rgba(255,255,255,.08); }
+
+.scroll-down__icon{
+  font-size:20px;
+  display:block;
+}
+
+/* Back to top */
+.scroll-up{
+  position:fixed;
+  bottom:22px;
+  left:50%;
+  right:auto;
+  transform:translateX(-50%) translateY(10px);
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  cursor:pointer;
+  font-size:20px;
+
+  opacity:0;
+  pointer-events:none;
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    background .2s ease;
+  z-index:20;
+}
+
+.scroll-up:hover{ background:rgba(255,255,255,.08); }
+
+.scroll-up.is-visible{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* Micro interaction */
+.scroll-up span,
+.scroll-down__icon{
+  transition: transform .2s ease;
+}
+
+.scroll-up:hover span{
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   LAYOUT / SECTIONS
+   ========================================================= */
+
+.container{
+  max-width:1050px;
+  margin:0 auto;
+  padding:70px 22px;
+}
+
+h2{
+  margin:0 0 10px;
+  font-size:28px;
+}
+
+.lead{
+  margin:0 0 26px;
+  color:var(--muted);
+  max-width:80ch;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
+}
+
+@media (max-width: 980px){
+  .grid{ grid-template-columns: 1fr; }
+  .nav{ display:none; } /* si tu réutilises .nav un jour */
+}
+
+.grid-2{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+}
+
+@media (max-width: 980px){
+  .grid-2{ grid-template-columns: 1fr; }
+}
+
+.list{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+}
+
+.list li{
+  margin:8px 0;
+}
+
+
+/* =========================================================
+   CARDS / SKILLS
+   ========================================================= */
+
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+}
+
+.card h3{
+  margin:0 0 6px;
+  font-size:16px;
+}
+
+.muted{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--text);
+}
+
+.card li{
+  margin:8px 0;
+  color:var(--muted);
+}
+
+.skills{
+  margin-top:20px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.chip{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+  background:rgba(255,255,255,.02);
+}
+
+.about{
+  background: linear-gradient(180deg, var(--surface), transparent);
+  border-top: 1px solid var(--border);
+}
+
+.about .container{
+  padding-top:90px; /* un peu plus d’air au dessus */
+}
+
+/* =========================================================
+   BUTTONS / CONTACT
+   ========================================================= */
+
+.contact__actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.btn{
+  padding:11px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.06);
+}
+
+.btn:hover{ background:rgba(255,255,255,.10); }
+
+.btn--ghost{ background:transparent; }
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+
+.theme-toggle:hover{
+  background:rgba(255,255,255,.08);
+}
+
+.theme-toggle__icon{
+  font-size:18px;
+  line-height:1;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+
+@media (max-width: 680px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
+
+.field{
+  display:block;
+  margin-bottom:14px;
+}
+
+.field span{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+  outline:none;
+}
+
+input:focus, textarea:focus{
+  border-color: rgba(122,162,255,.6);
+}
+
+.hp{
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
+}
+
+.about{
+  min-height:100vh;
+}
+
+/* =========================================================
+   TYPING (no dots)
+   ========================================================= */
+
+.typing::after{
+  content:"";
+  display:inline-block;
+  vertical-align: baseline;
+  width:0;
+  height:1em;
+  margin-left:6px;
+  border-right:2px solid currentColor;
+  opacity:.9;
+  animation: cursorBlink 1s steps(1, end) infinite;
+}
+
+@keyframes cursorBlink{
+  50%{ opacity:0; }
+}
+
+.typing.typing-done::after{
+  opacity:0;
+  animation:none;
+}
+
+/* Accessibilité : pas d’animation si reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .typing::after{ display:none; }
+}
+
+/* =========================================================
+   FADE IN AFTER TYPING
+   ========================================================= */
+
+.fade-in-after-typing{
+  opacity:0;
+  transform: translateY(6px);
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
+}
+
+/* Quand le typing est terminé */
+.typing.typing-done + .fade-in-after-typing{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .fade-in-after-typing{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* =========================================================
+   FADE IN HERO LINKS (after subtitle)
+   ========================================================= */
+
+.fade-in-links{
+  opacity:0;
+  transform: translateY(6px);
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
+  transition-delay: .15s; /* léger décalage après le subtitle */
+}
+
+/* Le subtitle apparaît, puis les liens */
+.typing.typing-done + .fade-in-after-typing + .fade-in-links{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .fade-in-links{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* =========================================================
+   RGPD FIXED BUTTON
+   ========================================================= */
+
+.rgpd-btn{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:20;
+
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  backdrop-filter: blur(6px);
+  color:var(--text);
+  font-size:18px;
+
+  transition:
+    background .2s ease,
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+.rgpd-btn:hover{
+  background:rgba(255,255,255,.08);
+  transform: translateY(-2px);
+  color:var(--accent);
+}
+
+/* Variante avec label */
+.rgpd-btn--label{
+  width:auto;
+  padding:0 14px;
+  gap:6px;
+  display:flex;
+  font-size:14px;
+}
+
+.rgpd-btn--label span{
+  font-weight:500;
+}

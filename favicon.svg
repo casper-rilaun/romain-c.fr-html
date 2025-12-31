@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0f; }
+      .txt { fill: #ffffff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 700; }
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #f6f7fb; }
+        .txt { fill: #0d1222; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="64" height="64" rx="14"></rect>
+  <text class="txt" x="50%" y="52%" font-size="30" text-anchor="middle" dominant-baseline="middle">
+    RC
+  </text>
+</svg>
